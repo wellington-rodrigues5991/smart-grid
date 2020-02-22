@@ -183,17 +183,19 @@ export default function App({data, setData, open}) {
         },
         End: d => {
             if(window.temp.id != null){
-                let x =  window.temp.target.getBoundingClientRect().x - window.temp.min.x;
-                x = Math.round(x / data.grid.size);
+                let x =  parseFloat(window.temp.target.getBoundingClientRect().x) - window.temp.min.x;
+                x = x / data.grid.size;
                 
-                let y =  window.temp.target.getBoundingClientRect().y + window.temp.parent.parentNode.scrollTop - window.temp.min.y;
-                y = Math.round(y / data.grid.size);
+                let y =  parseFloat(window.temp.target.getBoundingClientRect().y) + window.temp.parent.parentNode.scrollTop - window.temp.min.y;
+                y = y / data.grid.size;
+
+                console.log( parseFloat(window.temp.target.getBoundingClientRect().y), window.temp.parent.parentNode.scrollTop, window.temp.min.y, y, data.grid.size)
 
                 let w =  window.temp.target.getBoundingClientRect().width;
-                w = Math.round(w / data.grid.size);
+                w = w / data.grid.size;
                 
                 let h =  window.temp.target.getBoundingClientRect().height;
-                h = Math.round(h / data.grid.size);
+                h = h / data.grid.size;
 
                 window.temp.data = Tile.set(x, y, w, h, window.temp.id, window.temp.data, data.size);
                 
