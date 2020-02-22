@@ -31,8 +31,8 @@ class VCC extends React.PureComponent {
 
             data.grid = this.option.grid;
             data.selection = this.option.selection;
-            data.size = value.size;
-            data.data = value.data;            
+            if(value.size != undefined) data.size = value.size;
+            if(value.data != undefined) data.data = value.data;            
             
             this.setState({data: data, value: newProps})   
         });
