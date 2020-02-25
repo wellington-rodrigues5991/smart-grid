@@ -46,7 +46,7 @@ export default function Input({style, label, change, value, data}) {
 
     return <>
         <Wrapper style={style} label={label}>
-            <input type="number" defaultValue={value} ref={target} onChange={e => Edit(e.target.value)}/>
+            <input type="number" defaultValue={value} ref={target} onBlur={e => Edit(e.target.value)}/>
         </Wrapper>
     </>;
 }
